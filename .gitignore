@@ -1,0 +1,81 @@
+# =========================
+# Dependencies
+# =========================
+node_modules/
+**/node_modules/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# =========================
+# Build Files
+# =========================
+dist/
+build/
+coverage/
+.out/
+
+# =========================
+# Cache
+# =========================
+.cache/
+.parcel-cache/
+.vite/
+.eslintcache
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Docker
+# =========================
+*.pid
+docker-data/
+
+# =========================
+# Extension
+# =========================
+extension/dist/
+extension/build/
+extension/.plasmo/
+extension/.output/
+extension/.turbo/
+
+# =========================
+# Backend
+# =========================
+backend/uploads/
+backend/temp/
+backend/.env
+backend/dist/
+
+# =========================
+# Misc
+# =========================
+*.zip
+*.tar.gz
+*.7z
