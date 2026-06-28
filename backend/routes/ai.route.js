@@ -1,7 +1,7 @@
 import express from "express"
-import { testQueue } from "../controllers/ai.controller.js"
+import { processAI } from "../controllers/ai.controller.js"
 const router=express.Router()
 
-router.post("/test",testQueue)
+router.post("/process",processAI)
 
 export default router
