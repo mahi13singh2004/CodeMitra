@@ -1,23 +1,50 @@
-export const buildPrompt=(feature,data)=>{
-    const prompt=`You are an expert data structure and algo mentor.
-    Problem title:${data.title},
-    Problem description:${data.description},
-    Examples:${data.examples},
-    constraints:${data.constraints},
-    Programming language:${data.language},
-    student code:${data.code}
-    `
-    switch(feature){
-        case "hint":return `${prompt} Give only one HTMLInputElement, do not reveal the solution`
+export const buildPrompt = (feature, data) => {
+    const lang = data.language || 'the programming language'
+    const code = data.code || 'No code provided'
 
-        case "debug": return `${prompt} Find logical mistakes in code and explain them, do not reveal the whole code`
+    switch (feature) {
+        case "hint":
+            return `Problem: ${data.title}
 
-        case "complexity": return `${prompt} Explain the time and space complexity of the code and suggest optimised solution if available`
+Give ONE short hint (1-2 sentences max). No solution.`
 
-        case "explain": return `${prompt} explain code in simple language`
+        case "debug":
+            return `Language: ${lang}
+Code:
+${code}
 
-        case "pattern": return `${prompt} identify the dsa pattern, explain why and retur similar 3 problems`
+Find bugs. Be very brief. Max 3-4 sentences.`
 
-        default: return prompt
+        case "complexity":
+            return `Language: ${lang}
+Code:
+${code}
+
+State time and space complexity in this format only:
+Time: O(?)
+Space: O(?)
+Why: (1 sentence)
+
+Keep it under 50 words total.`
+
+        case "explain":
+            return `Language: ${lang}
+Code:
+${code}
+
+Explain this code in 3-4 short sentences. Be concise.`
+
+        case "pattern":
+            return `Problem: ${data.title}
+
+State the DSA pattern in this format:
+Pattern: [Name]
+Why: (1 line)
+Similar: [3 problem names]
+
+Keep response under 40 words.`
+
+        default:
+            return `Problem: ${data.title}\nCode: ${code}`
     }
 }

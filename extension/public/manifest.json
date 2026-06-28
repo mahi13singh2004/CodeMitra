@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "CodeMitra",
+    "description": "AI Coding Interview Assistant",
+    "version": "1.0.0",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "CodeMitra"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://leetcode.com/*",
+        "http://localhost:5000/*"
+    ],
+    "background": {
+        "service_worker": "src/background/background.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://leetcode.com/problems/*"
+            ],
+            "js": [
+                "src/content/content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
