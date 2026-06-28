@@ -1,8 +1,12 @@
-import axios from "axios";
+import axios from "axios"
+
+const baseURL = import.meta.env.PROD
+    ? "https://codemitra-nj9d.onrender.com/api"
+    : "http://localhost:5000/api"
 
 const api = axios.create({
-    baseURL: "http://localhost:5000/api",
+    baseURL,
     withCredentials: true,
-});
+})
 
-export default api;
+export default api
