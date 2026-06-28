@@ -181,7 +181,7 @@ function App() {
                                 ✕
                             </button>
                         </div>
-                        <div className="p-3 max-h-105 overflow-y-auto">
+                        <div className="p-3 max-h-105ok  overflow-y-auto">
                             <div
                                 className="text-xs text-white leading-relaxed prose prose-invert prose-sm max-w-none"
                                 dangerouslySetInnerHTML={{ __html: marked(result) }}
