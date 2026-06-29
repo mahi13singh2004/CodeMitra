@@ -99,6 +99,19 @@ backend/
 - **Database**: MongoDB Atlas
 - **Extension**: Chrome Web Store
 
+## 📸 SnapShots
+
+<p align="center">
+<img src="https://drive.google.com/uc?export=view&id=1lfPssC7n4F3iu2Fn-wMP0BF65rM2TBaS" width="800"/>
+<img src="https://drive.google.com/uc?export=view&id=10uSBmI-lYgL5dEVr4XlOl5afvD6PupVq" width="800"/>
+<img src="https://drive.google.com/uc?export=view&id=1s9TucXtWBskG77ZoxIHhLcHo8tBcg-f9" width="800"/>
+<img src="https://drive.google.com/uc?export=view&id=13EktK3Gcj1XIsgo-Clw8jDOmiOIMxDHO" width="800"/>
+<img src="https://drive.google.com/uc?export=view&id=1sKMiIWCcgHpBtMq6MvCkTKjsBZeYFnZC" width="800"/>
+</p>
+
+---
+
+
 ## 🚀 Getting Started
 
 ### Prerequisites
