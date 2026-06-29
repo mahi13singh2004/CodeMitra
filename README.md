@@ -228,17 +228,3 @@ NODE_ENV=development
 ## 📄 License
 
 This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- Google Gemini AI for powering the intelligence
-- LeetCode for the platform
-- Render for hosting infrastructure
-
-## 📧 Contact
-
-For issues and questions, please open an issue on GitHub.
-
----
-
-**Made with ❤️ for developers preparing for coding interviews**
