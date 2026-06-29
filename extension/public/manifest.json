@@ -3,9 +3,19 @@
     "name": "CodeMitra",
     "description": "AI Coding Interview Assistant",
     "version": "1.0.0",
+    "icons": {
+        "16": "icon16.png",
+        "48": "logo.png",
+        "128": "icon128.png"
+    },
     "action": {
         "default_popup": "index.html",
-        "default_title": "CodeMitra"
+        "default_title": "CodeMitra",
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "logo.png",
+            "128": "icon128.png"
+        }
     },
     "permissions": [
         "activeTab",

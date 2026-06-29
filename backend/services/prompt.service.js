@@ -36,13 +36,16 @@ Explain this code in 3-4 short sentences. Be concise.`
 
         case "pattern":
             return `Problem: ${data.title}
+Description: ${data.description || ''}
 
-State the DSA pattern in this format:
-Pattern: [Name]
-Why: (1 line)
-Similar: [3 problem names]
+Identify the DSA pattern needed to solve this problem.
 
-Keep response under 40 words.`
+Format:
+Pattern: [Pattern Name]
+Why: (1 short line explaining why this pattern fits)
+Similar: [3 similar LeetCode problem names]
+
+Keep under 50 words total.`
 
         default:
             return `Problem: ${data.title}\nCode: ${code}`
