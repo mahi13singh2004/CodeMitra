@@ -13,7 +13,6 @@ build/
 .idea/
 coverage/
 .nyc_output/
-test-*.js
 
 backend/.env
 backend/node_modules/
