@@ -118,48 +118,136 @@ backend/
 ```bash
 node >= 18.x
 npm >= 9.x
-redis-server
 ```
 
-### Backend Setup
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/mahi13singh2004/CodeMitra.git
+cd CodeMitra
+```
+
+### 2️⃣ Backend Setup
+
+**Install dependencies:**
 ```bash
 cd backend
 npm install
+```
 
-# Create .env file
+**Setup environment variables:**
+```bash
+# Copy example env file
+cp .env.example .env
+
+# Edit .env and add your credentials:
 PORT=5000
-MONGO_URI=your_mongodb_uri
-GOOGLE_API_KEY=your_gemini_api_key
-REDIS_URL=redis://localhost:6379
-ACCESS_TOKEN_SECRET=your_secret
-REFRESH_TOKEN_SECRET=your_secret
+MONGO_URI=your_mongodb_atlas_uri
+GOOGLE_API_KEY=your_google_gemini_api_key
+GEMINI_MODEL=gemini-1.5-flash
+REDIS_URL=your_render_redis_url
+ACCESS_TOKEN_SECRET=your_secret_key
+REFRESH_TOKEN_SECRET=your_secret_key
 NODE_ENV=development
+```
 
-# Start Redis
-redis-server
+**Get required credentials:**
 
-# Start backend
+1. **MongoDB Atlas** (Database)
+   - Go to https://cloud.mongodb.com
+   - Create free cluster
+   - Get connection string
+   - Whitelist IP: `0.0.0.0/0` (for testing)
+
+2. **Google Gemini API** (AI)
+   - Go to https://aistudio.google.com/app/apikey
+   - Create API key
+   - Copy the key
+
+3. **Render Redis** (Cache)
+   - Go to https://dashboard.render.com
+   - Create new Redis instance (Free tier)
+   - Copy External Redis URL
+
+**Start backend:**
+```bash
 npm run dev
 ```
 
-### Extension Setup
+You should see:
+```
+Redis connected
+Server running on port 5000
+```
+
+### 3️⃣ Extension Setup
+
+**Install dependencies:**
 ```bash
 cd extension
 npm install
+```
 
-# Development build
-npm run dev
-
-# Production build
+**Build extension:**
+```bash
 npm run build
 ```
 
-### Load Extension in Chrome
-1. Open Chrome → `chrome://extensions`
-2. Enable "Developer mode"
-3. Click "Load unpacked"
-4. Select `extension/dist` folder
-5. Pin the extension to toolbar
+This creates `extension/dist` folder.
+
+### 4️⃣ Load Extension in Chrome
+
+1. Open Chrome and go to `chrome://extensions/`
+2. Enable **Developer mode** (toggle in top-right)
+3. Click **"Load unpacked"**
+4. Select `CodeMitra/extension/dist` folder
+5. Pin the extension (puzzle icon → find CodeMitra → pin)
+
+### 5️⃣ Test Everything
+
+**Test backend API:**
+```bash
+# In root directory
+node test-api.js
+```
+
+Expected output:
+```
+✅ Health Check: { success: true, message: 'Running' }
+✅ AI Hint Response: { success: true, data: '...' }
+✅ All tests passed
+```
+
+**Test cache:**
+```bash
+node test-cache.js
+```
+
+Expected:
+- First call: ~20-30 seconds (Gemini API)
+- Second call: <500ms (Redis cache hit)
+
+**Test extension:**
+1. Go to any LeetCode problem
+2. Click CodeMitra extension icon
+3. Click "Get Hint"
+4. Should see AI response in ~1-2 seconds
+
+### 6️⃣ Development Mode
+
+**Backend (auto-restart on changes):**
+```bash
+cd backend
+npm run dev
+```
+
+**Extension (rebuild after changes):**
+```bash
+cd extension
+npm run build
+# Then reload extension in chrome://extensions/
+```
+
+---
 
 ## 📊 Performance Metrics
 
