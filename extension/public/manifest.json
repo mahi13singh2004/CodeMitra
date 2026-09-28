@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "CodeMitra",
     "description": "AI Coding Interview Assistant",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "icons": {
         "16": "icon16.png",
         "48": "logo.png",
@@ -18,12 +18,10 @@
         }
     },
     "permissions": [
-        "activeTab",
-        "scripting"
+        "activeTab"
     ],
     "host_permissions": [
-        "https://leetcode.com/*",
-        "http://localhost:5000/*"
+        "https://leetcode.com/*"
     ],
     "background": {
         "service_worker": "src/background/background.js",
