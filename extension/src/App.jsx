@@ -10,6 +10,7 @@ marked.setOptions({
 function App() {
     const [problem, setProblem] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [loadingStartTime, setLoadingStartTime] = useState(0)
     const [result, setResult] = useState(null)
     const [activeFeature, setActiveFeature] = useState(null)
     const [initialLoad, setInitialLoad] = useState(true)
@@ -98,6 +99,7 @@ function App() {
         if (!problem) return
 
         setLoading(true)
+        setLoadingStartTime(Date.now())
         setActiveFeature(feature.id)
         setResult(null)
 
@@ -161,7 +163,16 @@ function App() {
                 {loading && (
                     <div className="bg-zinc-950 rounded-lg p-5 border border-zinc-900 text-center">
                         <div className="w-8 h-8 border-2 border-zinc-800 border-t-blue-500 rounded-full animate-spin mx-auto mb-2"></div>
-                        <p className="text-zinc-500 text-sm">Thinking<span className="animate-pulse-slow">...</span></p>
+                        <p className="text-zinc-500 text-sm">
+                            {Date.now() - loadingStartTime > 10000
+                                ? "Waking up server..."
+                                : "Thinking..."
+                            }
+                            <span className="animate-pulse-slow">.</span>
+                        </p>
+                        {Date.now() - loadingStartTime > 10000 && (
+                            <p className="text-zinc-600 text-xs mt-1">Free tier takes ~30s on first use</p>
+                        )}
                     </div>
                 )}
 
