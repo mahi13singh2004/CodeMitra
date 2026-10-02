@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "CodeMitra",
     "description": "AI Coding Interview Assistant",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "icons": {
         "16": "icon16.png",
         "48": "logo.png",
